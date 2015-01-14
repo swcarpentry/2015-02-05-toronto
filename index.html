@@ -11,7 +11,8 @@ startdate: 2015-02-05
 enddate: 2015-02-06
 instructor: ["Thomas Guignard", "Greg Wilson"]
 helper: []
-contact: kristina.mitova@gmail.com
+contact: uftais@gmail.com
+etherpad: https://etherpad.mozilla.org/2015-02-05-toronto
 ---
 {% if page.eventbrite %}
 <iframe
@@ -27,7 +28,7 @@ contact: kristina.mitova@gmail.com
 
 <p>
   <a href="{{site.swc_site}}">Software Carpentry</a>'s mission is to
-  help researchers get more done in less time and with less pain by
+  help students, librarians and researchers get more done in less time and with less pain by
   teaching them basic computing skills.  This hands-on workshop will
   cover basic concepts and tools, including program design, version
   control, data management, and task automation.  Participants will be
@@ -36,9 +37,11 @@ contact: kristina.mitova@gmail.com
 </p>
 
 <p>
-  <strong>Who:</strong> The course is aimed at students in the iSchool
-  at the University of Toronto. FIXME - Kristina to add more specific information, mention AIS sponsorship?
+  <strong>Who:</strong> The course is aimed at students who are interested in developing a practical understanding of Data Analytics tools. Registration is open to all. Note that priority will be given to <a href="http://ais.ischool.utoronto.ca/">AIS members</a> and students from the iSchool at the University of Toronto.
 </p>
+
+<p><strong>Volunteering opportunity:</strong> Want to help out during a session as a volunteer? Contact AIS (see below).</p>
+
 
 {% if page.latlng %}
 <p>
@@ -52,7 +55,7 @@ contact: kristina.mitova@gmail.com
 {% endif %}
 
 <p>
-  <strong>Requirements:</strong> This workshop is primarily aimed at students with basic programming skills (e.g. in Python). Participants must bring a laptop with
+  <strong>Requirements:</strong>  A basic prior knowledge of the Python programming language is required. iSchool students who attended <a href="http://current.ischool.utoronto.ca/course-descriptions/inf1340h">INF1340H Introduction to Information Systems</a>, for example, should have the required Python skills to follow the course easily. Participants <strong>must bring a laptop</strong> with
   a few specific software packages installed (listed
   <a href="#setup">below</a>). They are also required to abide by
   Software Carpentry's
@@ -125,18 +128,15 @@ contact: kristina.mitova@gmail.com
     </ul>
   </div>
   <div class="span6">
-    <h3>Programming and analyzing data with R</h3>
-    <ul>		
-      <li>Loading Data</li>
-      <li>Manipulating Data</li>
-      <li>Plotting Data</li>
-      <li>Creating and using functions</li>
-      <li>Analyzing multiple data sets</li>
-      <li>Automating data analysis</li>
-      <li>Using R from the command line</li>
-      <li><a href="{{site.swc_lessons}}/ref/06-R.html">Reference...</a></li>
-	<li>FIXME - validate syllabus with R instructor</li>
-    </ul>
+    <h3>Programming in R</h3>
+	    <ul>
+	      <li>Working with vectors and data frames</li>
+	      <li>Reading and plotting data</li>
+	      <li>Creating and using functions</li>
+	      <li>Loops and conditionals</li>
+	      <li>Using R from the command line</li>
+	      <li><a href="{{site.swc_lessons}}/ref/06-R.html">Reference...</a></li>
+	    </ul>
   </div>
 </div>
 
@@ -147,7 +147,7 @@ contact: kristina.mitova@gmail.com
       <li>Introduction: what are Regular Expressions and how do they work?</li>
       <li>Operators and patterns: parsing, finding and extracting data</li>
       <li>Writing a function in R using Regular Expressions</li>
-	<li>FIXME - validate syllabus with RegExp instructor</li>
+	<li>FIXME - validate syllabus with R/RegExp instructor</li>
     </ul>
   </div>
   <div class="span6">
@@ -274,13 +274,50 @@ contact: kristina.mitova@gmail.com
   </div>
 <div> <!-- End of 'shell' section. -->  
 
-<div> <!-- Start of 'R section. -->
-  <h3>R</h3>
+	<div> <!-- Start of 'R' section. -->
+	  <h3>R</h3>
 
-  <p>
-    FIXME - we need info on how to install R.
-  </p>
-</div> <!-- End of 'Git' section. -->
+	  <p>
+	    <a href="http://www.r-project.org">R</a> is a programming language
+	    that is especially powerful for data exploration, visualization, and
+	    statistical analysis. To interact with R, we use
+	    <a href="http://www.rstudio.com/">RStudio</a>.
+	  </p>
+
+	  <div class="row-fluid">
+	    <div class="span4">
+	      <h4>Windows</h4>
+	      <p>
+		Install R by downloading and running
+		<a href="http://cran.r-project.org/bin/windows/base/release.htm">this .exe file</a>
+		from <a href="http://cran.r-project.org/index.html">CRAN</a>.
+		Also, please install the
+		<a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+	      </p>
+	    </div>
+	    <div class="span4">
+	      <h4>Mac OS X</h4>
+	      <p>
+		Install R by downloading and running
+		<a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg file</a>
+		from <a href="http://cran.r-project.org/index.html">CRAN</a>.
+		Also, please install the
+		<a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+	      </p>
+	    </div>
+	    <div class="span4">
+	      <h4>Linux</h4>
+	      <p>
+		You can download the binary files for your distribution
+		from <a href="http://cran.r-project.org/index.html">CRAN</a>. Or
+		you can use your package manager (e.g. for Debian/Ubuntu
+		run <code>sudo apt-get install r-base</code> and for Fedora run
+	        <code>sudo yum install R</code>).  Also, please install the
+		<a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.
+	      </p>
+	    </div>
+	  </div>
+	</div> <!-- End of 'R' section. -->
 
 <div> <!-- Start of 'Python' section. -->
   <h3>Python</h3>
