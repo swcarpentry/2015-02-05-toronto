@@ -2,24 +2,25 @@
 layout: workshop
 root: .
 venue: University of Toronto iSchool
-address: St. George Campus, University of Toronto
+address: iSchool Faculty of Information, Robarts Library, St. George Campus, University of Toronto
 country: Canada
 latlng: 43.664928,-79.399387
 humandate: Feb 05-06, 2015
 humantime: 8:30 am - 4:00 pm
 startdate: 2015-02-05
 enddate: 2015-02-06
-instructor: ["Thomas Guignard", "Greg Wilson"]
-helper: []
+instructor: ["Tom Wright", "Thomas Guignard", "Greg Wilson"]
+helper: ["Amy Brown", "James Iveniuk", "Kristina Mitova"]
 contact: uftais@gmail.com
 etherpad: https://etherpad.mozilla.org/2015-02-05-toronto
+eventbrite: 15377815460
 ---
 {% if page.eventbrite %}
 <iframe
   src="//www.eventbrite.com/tickets-external?eid={{page.eventbrite}}&ref=etckt"
   frameborder="0"
   width="100%"
-  height="206px"
+  height="230px"
   scrolling="auto">
 </iframe>
 {% endif %}
@@ -51,6 +52,12 @@ etherpad: https://etherpad.mozilla.org/2015-02-05-toronto
   <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
   or
   <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
+	<br/>
+	The iSchool is in the Bissel building, which is essentially the north wing of the Robarts Library building. The event will take place in two different rooms:
+	<ul>
+		<li><strong>Feb 5th</strong> - Room 417, Fourth floor of Bissel building (at the Inforum)
+		<li><strong>Feb 6th</strong> - Room 224/225, First floor of Bissel building
+	</ul>
 </p>
 {% endif %}
 
@@ -147,7 +154,6 @@ etherpad: https://etherpad.mozilla.org/2015-02-05-toronto
       <li>Introduction: what are Regular Expressions and how do they work?</li>
       <li>Operators and patterns: parsing, finding and extracting data</li>
       <li>Writing a function in R using Regular Expressions</li>
-	<li>FIXME - validate syllabus with R/RegExp instructor</li>
     </ul>
   </div>
   <div class="span6">
@@ -159,7 +165,6 @@ etherpad: https://etherpad.mozilla.org/2015-02-05-toronto
       <li>Creating data sets</li>
       <li>Publishing data</li>
       <li>Open Data: How to write HTML to make your data harvestable and promote re-use</li>
-	<li>FIXME - validate syllabus with Data Syndication instructor</li>
     </ul>
   </div>
 </div>
