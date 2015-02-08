@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-type" />
+	<meta content="en-us" http-equiv="Content-Language" />
+	<title>/2015-02-05-toronto</title>
+</head>
+<body>
+<p><span style="font-family:tahoma,geneva,sans-serif;">This version of the Etherpad has been reorganized slightly so that notes are in the order of the workshop (day 1 first, then day 2). If you&#39;re confused and would like to revert to the way the Etherpad was at the end of the workshop, click here:&nbsp;<br />
+<a href="https://etherpad.mozilla.org/ep/pad/view/2015-02-05-toronto/SKn551h3Iz">https://etherpad.mozilla.org/ep/pad/view/2015-02-05-toronto/SKn551h3Iz</a></span></p>
+
+<h3><br />
+<span style="font-family:tahoma,geneva,sans-serif;">General notes:</span><br />
+&nbsp;</h3>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">Workshop page:<br />
+<a href="https://swcarpentry.github.io/2015-02-05-toronto/">https://swcarpentry.github.io/2015-02-05-toronto/</a><br />
+<br />
+<a href="http://exple.tive.org/blarg/2013/10/22/citation-needed/">http://exple.tive.org/blarg/2013/10/22/citation-needed/</a><br />
+<br />
+Copy-pasting in Git Bash<br />
+<br />
+If you&#39;re using Windows and are having trouble copy-pasting stuff in Git Bash, try the options listed here: <a href="https://stackoverflow.com/questions/2304372/how-do-you-copy-and-paste-into-git-bash">https://stackoverflow.com/questions/2304372/how-do-you-copy-and-paste-into-git-bash</a></span><br />
+<br />
+&nbsp;</p>
+
+<hr />
+<h1><span style="font-family:tahoma,geneva,sans-serif;">Day 1</span></h1>
+
+<h2><span style="font-family:tahoma,geneva,sans-serif;"><b>The Unix Shell</b></span></h2>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">Files for &quot;automating with the Unix Shell&quot; session:&nbsp;<a href="https://bit.ly/swcbash">https://bit.ly/swcbash</a><br />
+<br />
+- command line still useful for repetitive tasks (easier and faster), and can reproduce/reuse the scripts more easily than using a GUI (graphical user interface)<br />
+- shell = a program that interprets what we tell the computer to do, and what the computer sends back e.g. whoami - shell interpreted the command, sent it to the computer, and interpreted the reply<br />
+- the windows cmd line interface doesn&#39;t share many of the same commands as bash and bash is more universal, so using bash<br />
+- <b>echo $SHELL</b> - which display currently using<br />
+- case matters!<br />
+- if command doesn&#39;t exist, get a response &quot;command not found&quot;<br />
+<br />
+- if want to act on files or folders, have to move to where they are<br />
+- with GUI can see more easily where you are, but with bash use <b>pwd</b> which means print working directory<br />
+- <b>cd </b>= change directory<br />
+- <b>cd .. </b>= return to previous directory<br />
+- <b>ls </b>= list contents of directory<br />
+&nbsp;&nbsp;&nbsp; flags:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -F = shows directories and files<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -a = shows all files&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -l = shows files one per line<br />
+<br />
+(Windows tip: can embiggen the window and font by left-clicking on the upper-left corner and choosing properties)<br />
+<br />
+- whenever give a command, can give it options - known as &quot;flags&quot; in bash e.g<b> ls -F </b>which shows which are directories and which are files&nbsp;<br />
+<br />
+- on Mac &amp; Linux, can use <b>man __</b> where __ is the command you want to know about to get details on it. On Windows, have to google OR do<b> __ --help</b> where ___ is the command you want to know about (sadly, not all commands have a --help option)<br />
+<br />
+- <b>mkdir</b> = create directory. Won&#39;t get a response from bash; it just does it<br />
+- <b>nano *.txt</b> = either open file with any legal name and the extension .txt in nano, or if file doesn&#39;t exsit, create file with that name<br />
+- <b>cat </b>= shows you what&#39;s in the file<br />
+- <b>rm *.*</b> = delete that file. <b>rm *</b> = delete files in the current directory (but not directories).<b> rm *.txt</b> = deletes only text files. Be careful: no undo! Can&#39;t do directories; only works on files. Have to use <b>rmdir ___ where ____</b> is the name of the directory. This will only work if the directory is empty (this is protection to make sure you don&#39;t accidentally delete files)<br />
+- if have multiple flags, can run them together e.g. -ir or separately -i -r<br />
+<b>rm -r </b>= removes nested directories (like rmdir)<br />
+&nbsp;&nbsp;&nbsp; -i - prompt before removal<br />
+<b>mv - to rename a file or move it</b></span></p>
+
+<ul>
+	<li>
+	<p><span style="font-family:tahoma,geneva,sans-serif;">To rename - mv pizza.cfg taco.cfg</span></p>
+
+	<ul>
+		<li>
+		<p><span style="font-family:tahoma,geneva,sans-serif;">to move -&nbsp; mv taco.cfg data/.&nbsp;&nbsp;&nbsp; &lt;- this moves the file taco.cfg inside the data directory</span></p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p><span style="font-family:tahoma,geneva,sans-serif;">../. = to move files back one step</span></p>
+	</li>
+	<li>
+	<p><span style="font-family:tahoma,geneva,sans-serif;">Never, ever, execute &quot;rm -rf /&quot; -&gt; It will remove all files on your computer.</span></p>
+	</li>
+</ul>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">. = here<br />
+e.g. ../molecules/. moves you up one directory to molecules, then inside the molecules directory<br />
+<b>cp</b> = to create a copy<br />
+&nbsp;&nbsp;&nbsp; -r copy nested directories too<br />
+&nbsp;&nbsp;&nbsp; * copy everything<br />
+wc = to get the number of words, lines and characters in a file<br />
+wc * = to get number of words, lines and characters for multiple files&nbsp;<br />
+&nbsp;&nbsp;&nbsp; -l = just number of lines<br />
+&nbsp;&nbsp;&nbsp; &gt; *.txt = put the contents into a file named *.txt<br />
+<b>sort -r</b> reverses the sort order<br />
+<b>sort lengths.txt &gt; sorted-lengths.txt</b> = sort lengths and save it to a new file called sorted-lengths.txt<br />
+<b>head -1 *.*</b> = print the first line of file *.*<br />
+sort lengths.txt | head -1 = sort lengths and then return the first line. | &quot;pipes&quot; the results of one function to another<br />
+wc -l * | sort | head -1 = does a bunch of the above commands &quot;on the fly&quot; without creating a file<br />
+BREAK<br />
+<br />
+If lose the $ can use CTRL-C to kill the process<br />
+cp *.dat backup-*.dat = get a request for more clarification<br />
+- want to know what&#39;s happening? Use the echo command<br />
+- refer to variables by preceding them with a $<br />
+- if type in for filename in * see the &gt; symbol to indicate bash is still expecting input<br />
+- syntax for...in...do e.g.&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for filename in *&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo $filename&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; done<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for filename in *; do; echo $filename; done<br />
+- using a variable:<br />
+&nbsp;&nbsp;&nbsp; for filename in basilisk.dat unicorn.dat<br />
+&nbsp;&nbsp;&nbsp; do<br />
+&nbsp;&nbsp;&nbsp; cp $filename backup-$filename<br />
+&nbsp;&nbsp;&nbsp; done<br />
+- rm backup-*<br />
+- another example:</span></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;"><tt>&nbsp; &nbsp; for filename in *<br />
+&nbsp;&nbsp;&nbsp; do<br />
+&nbsp;&nbsp;&nbsp; echo$filename<br />
+&nbsp;&nbsp;&nbsp; wc -l $filename &gt; $filename-length.txt<br />
+&nbsp;&nbsp;&nbsp; echo &quot;done processing&quot;<br />
+&nbsp;&nbsp;&nbsp; done</tt><br />
+<br />
+TO GET first three lines of each file&nbsp;</span><br />
+&nbsp;</p>
+
+<p style="margin-left: 40px;"><span style="font-family:courier new,courier,monospace;"><code>for filename in *<br />
+do&nbsp;<br />
+echo $filename<br />
+head -3 $filename<br />
+echo &quot;done processing&quot;<br />
+done</code></span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">- can create *.sh files in nano and run them by typing bash *.sh where * is the filename&nbsp;<br />
+- can&#39;t run in alt directory eg. bash gethead.sh ../molecules/ since it only acts on whatever&#39;s in the *.sh file. Within the *.sh file, you&#39;d need to have something like for filename in $1 which replaces $1 with the name of a single/first filename you give it e.g. bash gethead.sh basilisk.dat To do it with EVERY file, replace the $1 with $*<br />
+<br />
+comments in bash begin with #&nbsp;<br />
+- <b>history </b>gives you your history; could do something like history | tail -3 &gt; history_stuff.sh<br />
+- <b>!___</b> where ____ is the history linenumber&nbsp; -&gt; reruns that line<br />
+<br />
+LUNCH<br />
+<br />
+A short reference of bash commands: <a href="http://software-carpentry.org/v5/novice/ref/01-shell.html">http://software-carpentry.org/v5/novice/ref/01-shell.html</a><br />
+<br />
+You can also review today&#39;s material by going over the whole lesson: <a href="http://software-carpentry.org/v5/novice/shell/index.html">http://software-carpentry.org/v5/novice/shell/index.html</a></span><br />
+<br />
+&nbsp;</p>
+
+<hr />
+<h2><span style="font-family:tahoma,geneva,sans-serif;"><b>Programming with R</b></span></h2>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">R is a programming language designed to do statistics<br />
+<br />
+----------------------------------------------------------------------<br />
+Data files: <a href="http://files.software-carpentry.org/r-novice-bio_data.zip">http://files.software-carpentry.org/r-novice-bio_data.zip</a><br />
+----------------------------------------------------------------------<br />
+<br />
+getwd() -&gt; prints the current working directory (like pwd in bash)<br />
+<br />
+setwd(&#39;some/url&#39;) -&gt; changes the current working directory (like cd in bash)<br />
+<br />
+list.files() -&gt; prints a list of files in the current working directory (like ls in bash)<br />
+<br />
+read.csv(file=&#39;filename&#39;)&nbsp; -&gt; loads a CSV file (comma-separated values)<br />
+<br />
+head(read.csv(file=&#39;filename&#39;)) -&gt; only prints the first few lines of that file<br />
+<br />
+To get help on a function:<br />
+?functionname, e.g.?head<br />
+<br />
+<br />
+Assign a value to a variable:<br />
+weight_kg &lt;- 55<br />
+<br />
+Access the value of a variable:<br />
+weight_kg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ----&gt; you don&#39;t need to put a $ in front like in bash<br />
+<br />
+Operations on variables:<br />
+weight_lb = weight_kg * 2.2<br />
+<br />
+Warning: if you update the value of weight_kg after the above operation, it will not update weight_lb unless you rerun weight_lb = weight_kg * 2.2. It&#39;s not like in Excel with cell references.<br />
+<br />
+Assigning the contents of a file to a variable:<br />
+dat &lt;- read.csv(file=&#39;filename&#39;)<br />
+---&gt; dat will be in the format of a data frame<br />
+<br />
+A data frame organises data much like an Excel spreadsheet, in lines and columns (2 dimensions)<br />
+<br />
+names(dat) -&gt; prints the names of the columns (R uses the header or the first line of the CSV to populate those names)<br />
+dat$ColumnName -&gt; accesses the data in the column &#39;ColumnName&#39;<br />
+<br />
+Get a specific line from the data frame:<br />
+dat$ColumnName[linenumber]<br />
+<br />
+To get the value of a cell on the 35th line and the 3rd column:<br />
+dat[35,3]<br />
+<br />
+c operator -&gt; concatenate<br />
+<br />
+c(value1, value2, value3) -&gt; creates a 1-dimensional array of&nbsp;<br />
+<br />
+<br />
+Logical operations on data sets:<br />
+Example<br />
+x &lt;- c(5,4,7,10,15,13,17)<br />
+<br />
+x &gt; 10<br />
+prints out<br />
+FALSE FALSE FALSE FALSE TRUE TRUE TRUE<br />
+<br />
+To get only the values that satisfy the operation:<br />
+x[x&gt;10] prints out 15, 13, 17<br />
+<br />
+CHALLENGE:<br />
+element &lt;- c(&#39;o&#39;,&#39;x&#39;,&#39;y&#39;,&#39;g&#39;,&#39;e&#39;,&#39;n&#39;)<br />
+#first 3 characters<br />
+&nbsp;&nbsp;&nbsp; Solution:<br />
+&nbsp;&nbsp;&nbsp; element[c(1,2,3)]<br />
+&nbsp;&nbsp;&nbsp; or<br />
+&nbsp;&nbsp;&nbsp; element[1:3]<br />
+&nbsp;&nbsp;&nbsp; or<br />
+&nbsp;&nbsp;&nbsp; head(element, -3)<br />
+&nbsp;&nbsp;&nbsp; or<br />
+&nbsp;&nbsp;&nbsp; element[c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)]<br />
+<br />
+#Last 3 characters<br />
+&nbsp;&nbsp;&nbsp; element[4:6]<br />
+<br />
+?what is element[-1]<br />
+<br />
+You can omit one index:<br />
+dat[,3] -&gt; all the rows in the 3rd column<br />
+<br />
+<br />
+The way R stores data in data frame is a bit special. It uses *factors*<br />
+- lists the possible values that the data can take (called *levels*)<br />
+- refers to the possible values<br />
+<br />
+levels(dat$Column) -&gt; lists the possible values in that column<br />
+e.g.<br />
+levels(dat$Gender)<br />
+[1] &quot;F&quot; &quot;M&quot; &quot;f&quot; &quot;m&quot;<br />
+<br />
+food &lt;-factor(c(&quot;low&quot;, &quot;high&quot;, &quot;medium&quot;, &quot;medium&quot;, &quot;high&quot;))<br />
+<br />
+I can specify the order of the factors:<br />
+food &lt;-factor(c(&quot;low&quot;, &quot;high&quot;, &quot;medium&quot;, &quot;medium&quot;, &quot;high&quot;),ordered=TRUE,levels=c(&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;))<br />
+<br />
+min(food)<br />
+&nbsp;&nbsp;&nbsp; -&gt; prints &quot;low&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+Warning! If you are dealing with factors and want to treat them as numbers, strange stuff will happen because of the way factors are stored.<br />
+<br />
+<br />
+table(dat$Column) prints the number of time each factor is present<br />
+barplot(table(dat$Column)) displays a bar plot using those numbers<br />
+<br />
+Assignments can be mixed with indexing operators:<br />
+x[x&gt;10] &lt;- 20<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ---&gt; will replace all values of x that are greater than 10 with the value 20<br />
+<br />
+<br />
+Challenge<br />
+<br />
+Combine indexing and assignment to correct the Gender column so all values are uppercase<br />
+dat$Gender[dat$Gender == &#39;f&#39;] &lt;- &#39;F&#39;<br />
+dat$Gender[dat$Gender == &#39;m&#39;] &lt;- &#39;M&#39;<br />
+<br />
+Problem, R has not updated the levels, still thinks the Gender values could be either F, f, M or m.<br />
+If you try barplot(table(dat$Gender))<br />
+--&gt; you get a plot with empty &quot;f&quot; and &quot;m&quot; bars<br />
+<br />
+To update the levels:<br />
+dat$Gender &lt;- factor(dat$Gender)<br />
+<br />
+Other approach, update the levels directly:<br />
+levels(dat$Gender) [2] &lt;- &#39;F&#39;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^--- this indexes the second item in the levels, which is &#39;f&#39;<br />
+This approach has the advantage of updating the levels at the same time.<br />
+<br />
+<br />
+Get a quick summary of a series of columns:<br />
+summary(dat[,6:9])&nbsp;&nbsp;&nbsp; ---&gt; only selects the columns 6 to 9 of our data<br />
+<br />
+To repeat an operation on a series of columns, we use *apply*<br />
+<br />
+?apply to get more info<br />
+<br />
+apply(dat[,6:9],2,mean)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; ^&nbsp;&nbsp;&nbsp; ^&nbsp;&nbsp;&nbsp;&nbsp; ^-------- the name of the function I want to run<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; +------------- I want to apply the function column-wise<br />
+&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; +------------------ I want to apply the function to the columns 6 to 9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<br />
+max_aneurism_by_patient &lt;- apply(dat[,6:9],1,max)<br />
+<br />
+To plot this data: plot(max_aneurism_by_patient) --&gt; scatterplot by default<br />
+<br />
+We can define what data to be plotted on each axis. Eg. to plot blood pressure in relation to the max aneurism by patient:<br />
+plot(x&lt;-dat$BloodPressure, y&lt;-max_aneurism_by_patients)<br />
+<br />
+R will attempt to determine what&#39;s the best plot to display based on the nature of the data.<br />
+For example, if we want to plot the max aneurism by patient in relation to the patients&#39; group (control, treatment 1, treatment 2):<br />
+<br />
+plot(x&lt;-dat$Group, y&lt;-max_aneurism_by_patients)<br />
+<br />
+R will display a box plot<br />
+<br />
+<br />
+To define a function:</span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt>fahr_to_kelvin &lt;- function(temp)<br />
+{<br />
+&nbsp; # Converts tem in fahrenheit to kelvin&nbsp; &lt;-- remember to add comments!!<br />
+&nbsp; kelvin &lt;- ((temp - 32) * (5/9)) + 273.15<br />
+&nbsp; return(kelvin)<br />
+}</tt></span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">To call a function:<br />
+<br />
+fahrenheit_to_kelvin(32)<br />
+<br />
+<br />
+Trying to call a function without the brackets will display the code for this function. Try inputting<br />
+<br />
+apply<br />
+<br />
+without the brackets --&gt; it will display the code of the apply function.<br />
+<br />
+<br />
+CHALLENGE<br />
+Answer:</span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt>fence &lt;- function(wrapper,origin)<br />
+{<br />
+&nbsp; #dont forget to comment it<br />
+&nbsp; output &lt;- c(wrapper, origin, wrapper)<br />
+&nbsp; return(output)<br />
+}</tt></span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">A function can either be called by passing the arguments in the order they are expected<br />
+&gt; fence(&quot;***&quot;, &quot;My text&quot;)<br />
+[1] &quot;***&quot;&nbsp;&nbsp;&nbsp;&nbsp; &quot;My text&quot; &quot;***&quot;&nbsp;&nbsp;<br />
+or by explicitly setting them by name:<br />
+&gt; fence(origin=&quot;my text&quot;, wrapper=&quot;**&quot;)<br />
+[1] &quot;**&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;my text&quot; &quot;**&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<br />
+<br />
+A default value can be specified when defining the function. e.g.<br />
+center &lt;- function(data, desired=0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp; new_data&lt;- (data-mean(data)) + desired<br />
+&nbsp;&nbsp;&nbsp; return(new_data)<br />
+}<br />
+<br />
+---&gt; if the value for &quot;desired&quot; is omitted when calling the center function, the default value of 0 will be used.<br />
+<br />
+&gt; center(c(1,2,3))<br />
+[1] -1&nbsp; 0&nbsp; 1<br />
+&gt; center(c(1,2,3),100)<br />
+[1]&nbsp; 99 100 101</span><br />
+<br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt>analyse &lt;- function(fname)<br />
+{<br />
+&nbsp; dat&lt;-read.csv(fname,header=TRUE)<br />
+&nbsp; aneurisms_per_patient&lt;-apply(dat[,6:9],1,max)<br />
+&nbsp; plot(x=dat$Group, y=aneurisms_per_patient)<br />
+}</tt></span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">For loops in R:</span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt>for(value in c(&#39;Site-01.csv&#39;, &#39;Site-02.csv&#39;, &#39;Site-03.csv&#39;))<br />
+{<br />
+&nbsp;&nbsp;&nbsp; analyse(value)<br />
+}</tt></span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">If you want to keep learning, I suggest this free course from Code School: <a href="http://tryr.codeschool.com/">http://tryr.codeschool.com/</a> Have Fun!!</span><br />
+<br />
+&nbsp;</p>
+
+<hr />
+<h1><br />
+<span style="font-family:tahoma,geneva,sans-serif;">Day 2</span></h1>
+
+<h2><span style="font-family:tahoma,geneva,sans-serif;"><b>REGULAR EXPRESSIONS</b></span></h2>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">Please download <a href="http://files.software-carpentry.org/bibliography.csv">http://files.software-carpentry.org/bibliography.csv</a><br />
+<br />
+Please go to <a href="http://regexpal.com/">http://regexpal.com/</a> and copy the lines below into the <b><i>bottom</i></b> text area.<br />
+<br />
+<a href="http://www.asciitable.com/">http://www.asciitable.com/</a><br />
+<br />
+Baker 1 2009-11-17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1223.0<br />
+Baker 1 2010-06-24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1122.7<br />
+Baker 2 2010-08-25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2971.6<br />
+Baker 1 2011-01-05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1410.0<br />
+Baker 2 2010-09-04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4671.6<br />
+Davison/May 23, 2010/1724.7<br />
+Pertwee/May 24, 2010/2103.8<br />
+Davison/June 19, 2010/1731.9<br />
+Davison/July 6, 2010/2010.7<br />
+Pertwee/Sept 3, 2010/4981.0<br />
+<br />
+Regular expression is a pattern that matches some text<br />
+[] = give me the set of something inside the brackets e.g [0123456789] would give all digits, as would [0-9]<br />
+If you&#39;re matching, you need to know what language you&#39;re using (problem with languages like Turkish - do research)<br />
+e = match each letter separately<br />
+__+ = match one or more sets of __ e.g e+ = e and ee and [0-9]+ would give you 1 or 122354<br />
+<br />
+Regular expressions are used EVERYWHERE. Google basically does really sophisticated regex searches and sells us the results<br />
+Regex are (a) a lot faster and (b) portable between programming languages and platforms. You can even use it in MS Word to do a search-and-replace<br />
+[0-9]+-[0-9]+-[0-9]+ would give you ISO-formatted dates but also phone numbers<br />
+{*} where * is a number = exactly that number of digits e.g. [0-9]{4}-[0-9]{2}+-[0-9]{2} would identify 2009-11-17 but not 416-999-6647<br />
+&nbsp;&nbsp;&nbsp; {*,} means * number of characters or more<br />
+Pull all dates in a May 23, 2010 format: [A-Z-a-z]+ [0-9]+, [0-9]{4}<br />
+Regular expressions can&#39;t understand semantics, so can&#39;t distinguish May 99, 9999 as an invalid date. Can just pull patterns and then validate in a programming language<br />
+Must use [A-Z-a-z] instead of [A-z] since there are a number of symbols between the upper and lower case alphabets which otherwise get included in the search: <a href="http://www.asciitable.com/">http://www.asciitable.com/</a><br />
+| = OR<br />
+&nbsp;&nbsp;&nbsp; ak would only pull those two letters together, in order. a|k lets you look for a OR k<br />
+&nbsp;&nbsp;&nbsp; May|June|July will look for May OR June OR July. Letters together are evaluated together before OR<br />
+Get both kinds of dates:&nbsp;<br />
+([0-9]{4}-[0-9]{2}-[0-9]{2})|([A-z][a-z]+ [0-9]+, [0-9]{4})<br />
+For readability, at less than a gig of data, would break this into two regular expressions. But more than that and an optimized (i.e. one line) expression&nbsp;<br />
+? = whatever&#39;s right in front of it is optional e.g. ak? means must have a but may have k<br />
+^ can mean line break and would let you match the place where the line starts (but most check the box to match ^$ at line breaks<br />
+^[A-z][a-z]+( [0-9][0-9])? would give you the names plus the optional numbers&nbsp;<br />
+^ <b>*</b>A-z][a-z]+( [0-9][0-9])? The initial space asterisk combo will catch one or more spaces<br />
+<b>\d</b> means not just [0-9] but &quot;my language&#39;s characters for digits i.e. will work with any language set<br />
+\w&nbsp;<br />
+<b>.</b> matches any single character. If want to indicate a period, need to write \.<br />
+<b>\</b> means &quot;take anything after me literally e.g. \[ means actually look for a left square bracket<br />
+The more general we make them, the slower they will be to run<br />
+Note to sellf: this didn&#39;t work? (\d+\.\d+*)|(\d+*\.\d+)|<br />
+<br />
+BREAK<br />
+<br />
+<b>grep </b>= show what follows e.g. grep -E &#39;e{2,}&#39; in bash<br />
+&nbsp;&nbsp;&nbsp; -E = what follows is a regular expression (within single quotes)<br />
+Data tip: when designing/choosing how to name or organize data that will need to be searched or analyzed, all things being equal choose a format that will work with regex<br />
+sed -e &#39;s/Baker/Capaldi/g&#39; data.txt<br />
+<b>sed</b> = stream editor<br />
+&nbsp;&nbsp;&nbsp; -e = what follows is a regular expression (within single quotes)<br />
+&nbsp;&nbsp;&nbsp; s = substitute<br />
+&nbsp;&nbsp;&nbsp; g = globally&nbsp; (everywhere) - if there are multiple occurrences on each line<br />
+<br />
+Memory has been growing faster than our ability to process it, so tools that let us parse pieces of it can be useful (see Amdal&#39;s ratio)<br />
+Aside: University of Quebec&#39;s supercomputer is used to heat the entire university in the winter (!!!)</span><br />
+<br />
+&nbsp;</p>
+
+<h2><span style="font-family:tahoma,geneva,sans-serif;"><b>PYTHON</b></span></h2>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">How many times each author has written: name, number of papers<br />
+<br />
+cat = &quot;Debbie&quot; creates a variable named cat that points to the value &quot;Debbie&quot;<br />
+cat = &quot;Henri&quot; now points the variable to the value &quot;Henri&quot;<br />
+print len(cat) will give you the length of the value in the variable<br />
+MUST indent the body of a loop<br />
+&nbsp;<br />
+&nbsp;exit with CTRL D (or CTRL Z and RETURN in 3.4)<br />
+&nbsp;Opening a file in a program is a connection, not actually&nbsp;<br />
+&nbsp;<br />
+&nbsp;Note that python starts to count from 0 (not 1), i.e. the first element in&nbsp;<br />
+&nbsp; &gt;&gt; cat = &#39;Henry&#39;<br />
+&nbsp;can be addressed with<br />
+&nbsp;&gt;&gt; print cat[0]<br />
+&nbsp;H<br />
+&nbsp;<br />
+&nbsp;(bunch of missed stuff)<br />
+&nbsp;<br />
+&nbsp;reader = open (&#39;filename.*, &#39;r&#39;) where &#39;r&#39; means that we&#39;re reading (not writing) to the file<br />
+&nbsp;&nbsp;&nbsp;&nbsp; to close, reader.close()<br />
+<br />
+<br />
+If you want to run and rerun a bunch of python code, put it in a file instead of retyping it every time.<br />
+<br />
+Save the following into a file called bib.py:</span></p>
+
+<p style="margin-left: 40px;"><span style="font-family:tahoma,geneva,sans-serif;">&nbsp;&nbsp;&nbsp;<br />
+<tt>reader = open(&#39;bibliography.csv&#39;, &#39;r&#39;) # open the file for reading<br />
+for line in reader: # cycle through the lines<br />
+&nbsp; parts = line.split(&#39;,&#39;) # break the line into pieces where there are commas<br />
+&nbsp; print parts[2] # print column 2 (which is the third, because programmers)</tt></span></p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">The above will open the file and get you the 4-digit year prints part[3] will give you the fourth column i.e. author<br />
+<br />
+Then run the bit of code by typing<br />
+python bib.py<br />
+in a shell<br />
+-&gt; it should execute the contents of bib.py using python and print out the results.<br />
+If it doesn&#39;t work, check that bib.py is in the same directory as the csv file and that you are running python inside the same directory<br />
+<br />
+You can use the output of python in a pipeline (in the shell), e.g.<br />
+python bib.py | sort | uniq -c<br />
+&nbsp;&nbsp;&nbsp; uniq = gets rid of <i>adjacent</i> duplicate lines. If you run with a sort, will get rid of all duplicate years<br />
+&nbsp;&nbsp;&nbsp;&nbsp; -c = a count of how many duplicates<br />
+<br />
+what if a field has a comma inside it? Can be a problem in a comma-delineated file! Fortunately there&#39;s a Python module (or library), csv.reader, which can parse them. To use it, must <b>import </b>and then use the data&nbsp;<br />
+<br />
+In Python, bits of code that can be used and reused within your code are called &quot;libraries&quot;</span><br />
+&nbsp;</p>
+
+<p style="margin-left: 40px;"><br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt>import csv<br />
+raw = open(&#39;bibliography.csv&#39;, &#39;r&#39;)<br />
+cooked = csv.reader(raw)<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print line[3]</tt></span></p>
+
+<p><br />
+<br />
+<span style="font-family:tahoma,geneva,sans-serif;">Note that he went to Google to check the csv problem. Very useful for finding existing libraries (bits of code) that others have written to handle a problem you may have.</span><br />
+&nbsp;</p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt># Get author names from bibliography file, on per line.<br />
+<br />
+import csv<br />
+<br />
+raw = open(&#39;bibliography.csv&#39;, &#39;r&#39;)<br />
+cooked = csv.reader(raw)<br />
+<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; all_authors = line[3]&nbsp; # this part of the loop reads the 4th column in each line<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; authors = all_authors.split(&#39;;&#39;)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for a in authors:&nbsp; # this part of the loop prints the individual authors<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print a.strip() # the .strip removes any spaces at the beginning or the end of a</tt><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+
+<p><font face="tahoma, geneva, sans-serif">To further process the output of this script, you can use regular bash commands using pipes:</font></p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">python bib.py | sort | uniq -c<br />
+<br />
+<br />
+If you often have to handle large spreadsheet of messy data, you can play around with the scripts discussed this morning, or try <a href="http://openrefine.org">http://openrefine.org</a> (used to be called Google Refine). Very powerful tool to handle datasets, many more options than Excel for filtering.<br />
+<br />
+LUNCH</span></p>
+
+<h2><br />
+<span style="font-family:tahoma,geneva,sans-serif;">Playing with open data (using Python)</span></h2>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">www.zooniverse.org - crowdsourcing science<br />
+<br />
+<a href="http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/AUS.csv">http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/AUS.csv</a><br />
+This actually has a bunch of parameters (selection criteria in this case) to query their database in a way that we can bookmark it e.g. country = by country, tas = temperature at surface, AUS = for Australia<br />
+<br />
+The three-letter code for each country can be found here:<br />
+<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</a><br />
+<br />
+<br />
+From: <a href="http://data.worldbank.org/developers/climate-data-api">http://data.worldbank.org/developers/climate-data-api</a></span></p>
+
+<p><br />
+&nbsp;</p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><tt><span style="font-family:tahoma,geneva,sans-serif;"># First version of reading data from the web<br />
+<br />
+import urllib<br />
+<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/AUS.csv">http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/AUS.csv</a>&#39;<br />
+<br />
+reader = urllib.urlopen(url)<br />
+for line in reader:<br />
+&nbsp;&nbsp;&nbsp; print line</span></tt></div>
+
+<p><br />
+&nbsp;</p>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">If you&#39;re using Python 3, the syntax to use urllib is a bit different, use</span><br style="font-family: tahoma, geneva, sans-serif;" />
+<br style="font-family: tahoma, geneva, sans-serif;" />
+<span style="font-family: tahoma, geneva, sans-serif;">import urllib.request</span><br style="font-family: tahoma, geneva, sans-serif;" />
+<span style="font-family: tahoma, geneva, sans-serif;">reader = urlllib.request.urlopen(url)</span><br style="font-family: tahoma, geneva, sans-serif;" />
+<br style="font-family: tahoma, geneva, sans-serif;" />
+<span style="font-family: tahoma, geneva, sans-serif;">instead</span></p>
+
+<p>&nbsp;</p>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">There is a way in R to open info from the web as well, though the syntax will be a bit different</span></p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt># First version variation 1 of reading data from the web: this turns it from csv-formatted text into Python lists with sets of character strings<br />
+<br />
+import urllib<br />
+import csv #added<br />
+<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/AUS.csv">http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/AUS.csv</a>&#39;<br />
+<br />
+raw = urllib.urlopen(url)<br />
+cooked = csv.reader(raw)&nbsp;&nbsp; #added<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; print line</tt></span></div>
+
+<p>&nbsp;</p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><br />
+<span style="font-family:tahoma,geneva,sans-serif;"><tt># Version 2<br />
+<br />
+import urllib<br />
+import csv<br />
+<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/AUS.csv&#39;<br />
+<br />
+raw = urllib.urlopen(url)<br />
+cooked = csv.reader(raw)<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp; print(year, &#39;:&#39;, temp)</tt></span></div>
+
+<p><span style="font-family:tahoma,geneva,sans-serif;">&nbsp; &nbsp;&nbsp;<br />
+...but this version doesn&#39;t take into account the first row which consists of text headers, sooo...</span></p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt>import urllib<br />
+import csv<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/AUS.csv&#39;<br />
+raw = urllib.urlopen(url)<br />
+header = cooked.readline()&nbsp; #read the first line of the raw (getting it out of the way)<br />
+cooked = csv.reader(raw)&nbsp; #process the rest of the file<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp; print(year, &#39;:&#39;, temp)</tt></span></div>
+
+<p>&nbsp;</p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt># Version 3 - get the average temperature<br />
+<br />
+import urllib<br />
+import csv<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/BRA.csv&#39;<br />
+<br />
+raw = urllib.urlopen(url)<br />
+header = raw.readline()<br />
+<br />
+cooked = csv.reader(raw)<br />
+total = 0.0<br />
+num_seen = 0<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp; total = total + temp<br />
+&nbsp;&nbsp;&nbsp; num_seen = num_seen + 1<br />
+<br />
+print &#39;number of records processed&#39;, num_seen<br />
+print &#39;the average temperature is&#39;, total / num_seen</tt></span></div>
+
+<p>&nbsp;</p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt># Version 4 - get the average temperature with the country<br />
+<br />
+import urllib<br />
+import csv<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/BRA.csv&#39;<br />
+<br />
+raw = urllib.urlopen(url)<br />
+header = raw.readline()<br />
+<br />
+cooked = csv.reader(raw)<br />
+total = 0.0<br />
+num_seen = 0<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp; total = total + temp<br />
+&nbsp;&nbsp;&nbsp; num_seen = num_seen + 1<br />
+<br />
+print &#39;number of records processed&#39;, num_seen<br />
+print &#39;the average temperature is&#39;, total / num_seen</tt></span></div>
+
+<p>&nbsp;</p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt># Version 4: can more easily replace the country name and print it as part of the results&nbsp;<br />
+<br />
+import urllib<br />
+import csv<br />
+<br />
+country = &#39;NER&#39;<br />
+<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/{0}.csv&#39;<br />
+<br />
+actual = url.format(country)<br />
+<br />
+raw = urllib.urlopen(actual)<br />
+header = raw.readline()<br />
+<br />
+cooked = csv.reader(raw)<br />
+total = 0.0<br />
+num_seen = 0<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp; total = total + temp<br />
+&nbsp;&nbsp;&nbsp; num_seen = num_seen + 1<br />
+<br />
+print &#39;country is&#39;, country<br />
+print &#39;number of records processed&#39;, num_seen<br />
+print &#39;the average temperature is&#39;, total / num_seen</tt></span></div>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">sys = how you get things off the command line and into the code<br />
+<br />
+What do you count as a particular region? Affects the data. Russian&nbsp;</span></p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt># Version 5 (getting country code from the command line)<br />
+<br />
+import urllib<br />
+import csv<br />
+import sys<br />
+<br />
+country = sys.argv[1]<br />
+<br />
+url = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/{0}.csv&#39;<br />
+<br />
+actual = url.format(country)<br />
+<br />
+raw = urllib.urlopen(actual)<br />
+header = raw.readline()<br />
+<br />
+cooked = csv.reader(raw)<br />
+total = 0.0<br />
+num_seen = 0<br />
+for line in cooked:<br />
+&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp; total = total + temp<br />
+&nbsp;&nbsp;&nbsp; num_seen = num_seen + 1<br />
+<br />
+print &#39;country is&#39;, country<br />
+print &#39;number of records processed&#39;, num_seen<br />
+print &#39;the average temperature is&#39;, total / num_seen</tt></span></div>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">The above script, however, only works with a single country, e.g. by invoking the program with<br />
+<strong>python weather.py CAN</strong><br />
+<br />
+What if we want to be able to process multiple countries?</span></p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt># Version 6: process multiple countries from the command line + uses a function<br />
+<br />
+# Note: result for CAN on 2015-02-06 was -7.42467926655<br />
+<br />
+import urllib<br />
+import csv<br />
+import sys<br />
+<br />
+URL = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/{0}.csv&#39;<br />
+<br />
+def get_data(where):<br />
+&nbsp;&nbsp;&nbsp; actual = URL.format(where)<br />
+&nbsp;&nbsp;&nbsp; raw = urllib.urlopen(actual)<br />
+&nbsp;&nbsp;&nbsp; header = raw.readline()<br />
+&nbsp;&nbsp;&nbsp; cooked = csv.reader(raw)<br />
+&nbsp;&nbsp;&nbsp; total = 0.0<br />
+&nbsp;&nbsp;&nbsp; num_seen = 0<br />
+&nbsp;&nbsp;&nbsp; for line in cooked:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; total = total + temp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; num_seen = num_seen + 1<br />
+&nbsp;&nbsp;&nbsp; ave_temp = total / num_seen<br />
+&nbsp;&nbsp;&nbsp; print &#39;{0},{1}&#39;.format(where, ave_temp)<br />
+<br />
+# Now loop over all the countries.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+countries = sys.argv[1:]<br />
+print &#39;country,ave surface temp (C)&#39;<br />
+for country in countries:<br />
+&nbsp;&nbsp;&nbsp; get_data(country)</tt></span></div>
+
+<p><br />
+<span style="font-family:tahoma,geneva,sans-serif;">Note that this version of the script wraps the code that grabs the info from the web and computes the average temperature inside a function called get_data(where).<br />
+<br />
+The second part of the script then goes through all countries passed on through the command line (sys.argv[1:] takes all arguments from the 2nd one on - the 1st one is the name of the script itself) and calls the get_data() function for each country.<br />
+<br />
+<br />
+can then export into a document using &gt; *.csv where * is whatever you want to call the file the data will be written to<br />
+<br />
+RECAP:<br />
+1. 7 plus or minus two: reason for not having too long strings of code: better to divide into chunks to name (and remember) the chunk instead of all the individual bits<br />
+2. Code for 45-50 minutes, take a break before revisiting<br />
+3. Get lots of sleep<br />
+4. Work with tools that are already there and work best for your needs (e.g. R for stats, Python for text)<br />
+<br />
+THINGS TO LOOK AT:<br />
+Bad Data<br />
+Open Refine: openrefine.org - data cleanup tool<br />
+<br />
+Random tip: giving out three sticky notes in each meeting. Each person takes away a sticky note when they speak, and when they run out can&#39;t speak again until everyone else has used at least one sticky note (Tool for making sure everyone gets to speak)<br />
+<br />
+<br />
+<br />
+Thomas made a version of this script that goes through all countries, using a CSV file found here:<br />
+<a href="https://gis.stackexchange.com/questions/1047/full-list-of-iso-alpha-2-and-iso-alpha-3-country-codes">https://gis.stackexchange.com/questions/1047/full-list-of-iso-alpha-2-and-iso-alpha-3-country-codes</a><br />
+The file is available here: <a href="http://geohack.net/gis/wikipedia-iso-country-codes.csv">http://geohack.net/gis/wikipedia-iso-country-codes.csv</a><br />
+<br />
+You can run my code by executing it in the directory where you downloaded the above file:<br />
+python weather.py wikipedia-iso-country-codes.csv &gt; average_temperatures.csv</span></p>
+
+<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><span style="font-family:tahoma,geneva,sans-serif;"><tt>import urllib<br />
+import csv<br />
+import sys<br />
+<br />
+URL = &#39;<a href="http://climatedataapi.worldbank.org/climateweb">http://climatedataapi.worldbank.org/climateweb</a>&#39; + \<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;/rest/v1/country/cru/tas/year/{0}.csv&#39;<br />
+<br />
+def loop_countries(file):<br />
+&nbsp;&nbsp;&nbsp; raw = open(file, &#39;r&#39;)<br />
+&nbsp;&nbsp;&nbsp; cooked = csv.reader(raw)<br />
+&nbsp;&nbsp;&nbsp; for line in cooked:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; country=line[2]<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get_data(country)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+<br />
+<br />
+def get_data(where):<br />
+&nbsp;&nbsp;&nbsp; actual = URL.format(where)<br />
+&nbsp;&nbsp;&nbsp; raw = urllib.urlopen(actual)<br />
+&nbsp;&nbsp;&nbsp; header = raw.readline()<br />
+&nbsp;&nbsp;&nbsp; cooked = csv.reader(raw)<br />
+&nbsp;&nbsp;&nbsp; total = 0.0<br />
+&nbsp;&nbsp;&nbsp; num_seen = 0<br />
+&nbsp;&nbsp;&nbsp; for line in cooked:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; year = int(line[0])<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; temp = float(line[1])<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; total = total + temp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; num_seen = num_seen + 1<br />
+&nbsp;&nbsp;&nbsp; if num_seen &gt; 0:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ave_temp = total / num_seen<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print &#39;{0},{1}&#39;.format(where, ave_temp)<br />
+<br />
+# Load the countries data file&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+countryfile = sys.argv[1]<br />
+<br />
+print &#39;country,ave surface temp (C)&#39;<br />
+loop_countries(countryfile)</tt></span></div>
+</body>
+</html>
